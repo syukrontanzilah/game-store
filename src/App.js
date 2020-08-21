@@ -1,13 +1,13 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import Entypo from 'react-native-vector-icons/Entypo'
+import styled from 'styled-components'
 import Home from './pages/Home'
 import Live from './pages/Live'
 import Profile from './pages/Profile'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Entypo from 'react-native-vector-icons/Entypo';
-import styled from 'styled-components'
+import Game from './pages/Game'
 
 
 const Stack = createStackNavigator()
@@ -30,7 +30,6 @@ const ScreenNav = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-
           switch (route.name) {
             case "Home":
               iconName = "home";
@@ -65,8 +64,10 @@ const ScreenNav = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none">
+      <Stack.Navigator mode="modal" headerMode="none">
         <Stack.Screen name="App" component={ScreenNav} />
+        <Stack.Screen name="Game" component={Game} />
+
       </Stack.Navigator>
     </NavigationContainer>
   )

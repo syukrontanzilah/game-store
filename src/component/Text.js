@@ -14,6 +14,17 @@ const Text = styled.Text`
 font-family:"Avenir Next";
 color: ${props => props.color ?? "#ffffff"};
 
+${({ gray, wheat }) => {
+        switch (true) {
+            case gray:
+                return `color: #9a9a9a`;
+            case wheat:
+                return `color: wheat`;
+            default:
+                return `color:white`;
+        }
+    }}
+
 ${({ title, large, medium, small }) => {
         switch (true) {
             case title:

@@ -7,7 +7,7 @@ import { categoryList } from '../component/Category';
 import { games } from '../component/gameData';
 
 
-const Home = () => {
+const Home = ({navigation}) => {
     const [selectCategory, setSelectCategory] = useState("All")
     const gameRef= useRef()
     const changeCategory = (category) => {
@@ -16,7 +16,7 @@ const Home = () => {
     }
     const GameItem = (game) => {
         return (
-            <Game>
+            <Game onPress={()=> navigation.navigate("Game", {game})}>
                 <GameCover source={game.cover} />
                 <GameInfo backgroundColor={game.backgroundColor}>
                     <GameImage source={game.cover} />
