@@ -118,7 +118,7 @@ border-radius: 3px;
 background-color: #819ee5;
 `
 const Games = styled.FlatList`
-margin-top:30px;
+margin-top:20px;
 flex:1;
 `
 const Game = styled.TouchableOpacity`

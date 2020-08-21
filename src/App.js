@@ -62,6 +62,7 @@ const ScreenNav = () => {
 }
 
 const App = () => {
+  console.disableYellowBox = true;
   return (
     <NavigationContainer>
       <Stack.Navigator mode="modal" headerMode="none">
