@@ -59,7 +59,7 @@ export const games = [
         teaser: "Sky: Children of The Light, Perfect Screen Awesome Feature",
         description: "Unforeseen Incidents is a classical style interactive mystery set in a beautifully hand-painted world. Unforeseen Incidents is a classical style interactive mystery set in a beautifully hand-painted world. U must seen this awesome game",
         rating:4.5,
-        category: ["Action", "Indie", "Adventure", "Simulation"],
+        category: ["Indie", "Adventure", "Simulation"],
         age: "12+",
         cover: require("../asset/icon/children2.jpg"),
         screenshoots:[

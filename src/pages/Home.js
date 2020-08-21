@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { StatusBar } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components'
@@ -9,7 +9,9 @@ import { games } from '../component/gameData';
 
 const Home = () => {
     const [selectCategory, setSelectCategory] = useState("All")
+    const gameRef= useRef()
     const changeCategory = (category) => {
+        gameRef.current.scrollToOffset({x:0, y:0})
         setSelectCategory(category)
     }
     const GameItem = (game) => {
@@ -21,7 +23,6 @@ const Home = () => {
                     <GameTitle>
                         <Text medium bold>{game.title}</Text>
                         <Text small>{game.teaser}</Text>
-
                     </GameTitle>
                 </GameInfo>
             </Game>
@@ -67,9 +68,12 @@ const Home = () => {
                 })}
             </Categories>
             <Games
-                data={games}
+                data={games.filter(game =>{
+                    return game.category.includes(selectCategory) || selectCategory === "All"
+                })}
                 keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => GameItem(item)}
+                ref={gameRef}
             />
 
         </Container>
