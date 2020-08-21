@@ -14,8 +14,8 @@ const Game = ({ route, navigation }) => {
         let stars = []
         for (let s = 1; s <= 5; s++) {
             stars.push(
-                <Ionicons key={s} name="ios-star" size={14} color={Math.floor(game.rating) >= s ? "#819ee5" : "#434958"}
-                    style={{ marginRight: 5 }} />
+                <Ionicons key={s} name="ios-star" size={13} color={Math.floor(game.rating) >= s ? "#819ee5" : "#434958"}
+                    style={{ marginRight: 3 }} />
             )
         }
         return <Stars>
@@ -25,9 +25,7 @@ const Game = ({ route, navigation }) => {
     return (
         <GameContainer>
             <StatusBar
-
             // barStyle="light-content"
-
             />
             <GameArtContainer>
                 <GameArt source={game.cover} />
@@ -55,6 +53,21 @@ const Game = ({ route, navigation }) => {
                 <Text bold gray>{game.age}</Text>
                 <Text bold gray>Game of the day</Text>
             </GameStatsContainer>
+
+            <ScreenShotsContainer>
+                <ScreenShots horizontal showsHorizontalScrollIndicator={false}>
+                    {game.screenshoots.map((screenshot, index) => {
+                        return (
+                            <ScreenShotContainer key={index}>
+                                <ScreenImage source={screenshot} />
+                            </ScreenShotContainer>
+                        )
+                    })}
+                </ScreenShots>
+            </ScreenShotsContainer>
+            <Description medium gray>
+                {game.description}
+            </Description>
         </GameContainer>
 
     )
@@ -119,4 +132,29 @@ flex-direction: row;
 `
 const Stars = styled.View`
 flex-direction:row
+`
+const ScreenShotsContainer = styled.View`
+margin:8px 0;
+margin-horizontal:16px;
+
+`
+const ScreenShots = styled.ScrollView`
+`
+const ScreenShotContainer = styled.View`
+padding:16px;
+padding-right:0px;
+shadow-color: #000000;
+shadow-offset: 1px 1px;
+shadow-opacity:0.5;
+shadow-radius:5px
+`
+const ScreenImage = styled.Image`
+height:180px;
+width:280px;
+border-radius:12px
+`
+const Description = styled(Text)`
+margin: 0 16px;
+line-height:22px;
+margin-bottom:20px
 `

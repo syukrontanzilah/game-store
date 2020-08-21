@@ -1,14 +1,20 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StatusBar } from 'react-native'
+import styled from 'styled-components'
+import Text from '../component/Text'
 
 const Profile = () => {
     return (
-        <View>
-            <Text>Profile</Text>
-        </View>
+        <Container>
+<StatusBar/>
+        </Container>
     )
 }
 
 export default Profile
 
-const styles = StyleSheet.create({})
+
+const Container = styled.View`
+flex:1;
+background-color:wheat
+`
