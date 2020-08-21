@@ -77,6 +77,6 @@ export default App
 
 const TabBarIconContainer = styled.View`
 background-color: ${(props) => (props.focused ? "#819ee5" : "#343434")};
-padding:2px 15px;
+padding:4px 10px;
 border-radius: 32px;
 `

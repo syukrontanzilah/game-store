@@ -14,12 +14,12 @@ const Text = styled.Text`
 font-family:"Avenir Next";
 color: ${props => props.color ?? "#ffffff"};
 
-${({ gray, wheat }) => {
+${({ gray, purple }) => {
         switch (true) {
             case gray:
                 return `color: #9a9a9a`;
-            case wheat:
-                return `color: wheat`;
+            case purple:
+                return `color: #819ee5`;
             default:
                 return `color:white`;
         }
